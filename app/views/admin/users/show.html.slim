@@ -1,23 +1,27 @@
-- if user.errors.present?
-  ul#error_explanation
-    - user.errors.full_messages.each do |message|
-      li= message
+h1 ユーザの詳細
 
-= form_with model: [:admin, user], local: true do |f|
-  .form-group
-    = f.label :name, '名前'
-    = f.text_field :name, class: 'form-control'
-  .form-group
-    = f.label :email, 'メールアドレス'
-    = f.text_field :email, class: 'form-control'
-  .form-check
-    = f.label :admin, class: 'form-check-label' do
-      = f.check_box :admin, class: 'form-check-input'
-      | 管理者権限
-  .form-group
-    = f.label :password, 'パスワード'
-    = f.password_field :password, class: 'form-control'
-  .form-group
-    = f.label :password_confirmation, 'パスワード(確認)'
-    = f.password_field :password_confirmation, class: 'form-control'
-  = f.submit '登録する', class: 'btn btn-primary'
+.nav.justify-content-end
+  = link_to '一覧', admin_users_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= User.human_attribute_name(:id)
+      td= @user.id
+    tr
+      th= User.human_attribute_name(:name)
+      td= @user.name
+    tr
+      th= User.human_attribute_name(:email)
+      td= @user.email
+    tr
+      th= User.human_attribute_name(:admin)
+      td= @user.admin? ? 'あり' : 'なし'
+    tr
+      th= User.human_attribute_name(:created_at)
+      td= @user.created_at
+    tr
+      th= User.human_attribute_name(:updated_at)
+      td= @user.updated_at
+
+= link_to '編集', edit_admin_user_path, class: 'btn btn-primary mr-3'
+= link_to '削除', [:admin, @user], method: :delete, data: { confirm: "ユーザ「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

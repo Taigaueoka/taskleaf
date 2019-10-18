@@ -8,7 +8,6 @@ describe 'タスク管理機能', type: :system do
   end
   
   context 'ユーザーAがログインしているとき' do
-
     before do
       visit login_path
       fill_in 'メールアドレス', with: 'a@example.com'
@@ -16,7 +15,8 @@ describe 'タスク管理機能', type: :system do
       click_button 'ログインする'
     end
 
-      it 'ユーザーAが作成したタスクが表示されない' do
+
+      it 'ユーザーAが作成したタスクが表示される' do
         expect(page).to have_content '最初のタスク'
       end
     end

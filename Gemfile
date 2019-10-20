@@ -69,5 +69,4 @@ gem 'html2slim'
 gem 'bootstrap'
 
 gem 'rails_autolink'
-gem 'sqlite3'
 

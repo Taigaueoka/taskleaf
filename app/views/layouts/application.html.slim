@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | Taskleaf
+      | 食シェア
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -14,6 +14,7 @@ html
       ul.navbar-nav.ml-auto
         - if current_user
           li.nav-item= link_to 'タスク一覧', tasks_path, class: 'nav-link'
+          li.nav-item= link_to 'マイページ', users_index_path, class: 'nav-link'
           - if current_user.admin?
             li.nav-item= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
           li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'

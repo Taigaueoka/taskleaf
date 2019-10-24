@@ -71,3 +71,9 @@ gem 'bootstrap'
 gem 'rails_autolink'
 gem 'ransack'
 gem 'kaminari'
+gem 'devise'
+gem 'evil_icons', github: 'outpunk/evil-icons'
+
+
+# Use ActiveStorage variant
+gem 'mini_magick', '~> 4.8'

@@ -17,6 +17,7 @@ class TasksController < ApplicationController
   end
 
   def create
+    icon_name:"default_icon.png"
     @task = current_user.tasks.new(task_params)
 
 

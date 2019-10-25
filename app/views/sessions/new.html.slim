@@ -8,5 +8,8 @@ h1 ログイン
     = f.label :password, 'パスワード'
     = f.password_field :password, class: 'form-control', id: 'session_password'
   = f.submit 'ログインする', class: 'btn btn-primary'
+br
+br
+= link_to '新規登録', "../users/new", class: 'btn btn-primary mr-3'
 
 
